@@ -31,4 +31,10 @@
     $area = new Rettangolo(50,10);
     echo $area;
 
-    
+    class Book{
+        public $book;
+        public $author;
+        public $genre;
+        public $published_year;
+        
+    }
