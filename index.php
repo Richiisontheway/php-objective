@@ -54,7 +54,7 @@
             }
         }
         public function getAuthor(){
-            return $this->book;
+            return $this->author;
         }
         public function setAuthor($author){
             if(is_string($this->author)){
@@ -87,3 +87,27 @@
 
     $book = new Book('Harry Potter', 'Jk Rowling','fantasy', 2014);
     echo $book->getInfo();
+    class library{
+        public $books=[];
+        public function addBooks(Book $book){
+            $this->books[] = $book;
+        }
+        public function removeBooks($title){
+            foreach($this->books as $i => $book){
+                if($book->getBook() == $title){
+                    unset($this->books[$i]);
+                    $this->books = array_values($this->books);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public function findBookTitle($title){
+            foreach($this->books as $book){
+                if($book->getBook() == $title){
+                    return $book;
+                }
+            }
+            return null;    
+        }
+    }
